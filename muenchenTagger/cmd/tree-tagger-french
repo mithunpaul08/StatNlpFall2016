@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/Users/mithun/agro/statnlp539/muenchenTagger/bin
+CMD=/Users/mithun/agro/statnlp539/muenchenTagger/cmd
+LIB=/Users/mithun/agro/statnlp539/muenchenTagger/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TOKENIZER=${CMD}/utf8-tokenize.perl
+TAGGER=${BIN}/tree-tagger
+ABBR_LIST=${LIB}/french-abbreviations-utf8
+PARFILE=${LIB}/french-utf8.par
+
+$TOKENIZER -f -a $ABBR_LIST $* |
+$TAGGER $OPTIONS $PARFILE

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/Users/mithun/agro/statnlp539/muenchenTagger/bin
+CMD=/Users/mithun/agro/statnlp539/muenchenTagger/cmd
+LIB=/Users/mithun/agro/statnlp539/muenchenTagger/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TOKENIZER=${CMD}/utf8-tokenize.perl
+MWL=${CMD}/mwl-lookup.perl
+TAGGER=${BIN}/tree-tagger
+ABBR_LIST=${LIB}/bulgarian-abbreviations
+PARFILE=${LIB}/bulgarian-utf8.par
+MWLFILE=${LIB}/bulgarian-mwls
+
+$TOKENIZER -a $ABBR_LIST $* |
+# recognition of MWLs
+$MWL -f $MWLFILE |
+# tagging
+$TAGGER $OPTIONS $PARFILE

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN=/Users/mithun/agro/statnlp539/muenchenTagger/bin
+CMD=/Users/mithun/agro/statnlp539/muenchenTagger/cmd
+LIB=/Users/mithun/agro/statnlp539/muenchenTagger/lib
+
+OPTIONS="-token -lemma -sgml"
+
+TAGGER=${BIN}/tree-tagger
+TOKENIZER=${CMD}/utf8-tokenize.perl
+PARFILE=${LIB}/slovak-utf8.par
+
+$TOKENIZER $* |
+$TAGGER $OPTIONS $PARFILE

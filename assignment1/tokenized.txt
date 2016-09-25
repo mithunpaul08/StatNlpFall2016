@@ -1,0 +1,443 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red69\green69\blue69;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs33 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 I\
+think\
+the\
+tricky\
+part\
+here\
+is\
+to\
+decide\
+when\
+single\
+quotes\
+are\
+parts\
+of\
+words\
+,\
+when\
+periods\
+do\
+an\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs20 \cf2 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 don't\
+imply\
+sentence\
+boundaries\
+,\
+etc.\
+Sentence\
+splitting\
+is\
+a\
+deterministic\
+consequence\
+of\
+tokenization\
+:\
+a\
+sentence\
+ends\
+when\
+a\
+sentence-ending\
+character\
+(\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs20 \cf2 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 .\
+,\
+!\
+,\
+or\
+?\
+)\
+is\
+found\
+which\
+is\
+not\
+grouped\
+with\
+other\
+characters\
+into\
+a\
+token\
+(\
+such\
+as\
+for\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs20 \cf2 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 an\
+abbreviation\
+or\
+number\
+)\
+,\
+though\
+it\
+may\
+still\
+include\
+a few\
+tokens\
+that\
+can\
+follow\
+a\
+sentence\
+ending\
+character\
+as\
+part\
+of\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs20 \cf2 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+
+\f1 \uc0\u9675 
+\f0 \
+\uc0\u9679 \
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf2 the\
+same\
+sentence\
+(\
+such\
+as\
+quotes\
+and\
+brackets\
+)\
+.}
