@@ -85,76 +85,15 @@ print "\n"
 print "\nLambda 1:" + lambda1
 print "\nLambda 2:" + lambda2
 print "\nLambda 3:" + lambda3
-                                                    #     author_bigram_dictionary[m]["count"] += 1
-                                                    #
-                                                    # else:
-                                                    #     author_bigram_dictionary[m] = {}
-                                                    #     author_bigram_dictionary[m]["count"] = 1
-#fdist_test_tri_sorted=sorted(fdist_test_tri.items())
-#for k,v in fdist_test_tri_sorted():
-#    print k,v
 
-#################end of testing data manipulations#############
+#normalizing lambda
+sumLambda=lambda1+lambda2+lambda3
+nLambda1= lambda1/sumLambda
+nLambda2=lambda2/sumLambda
+nLambda3=lambda3/sumLambda
 
 
-# print the most common top 50 n-grams -but without the frequency value
-#vocabulary1 = fdist1.keys()
-#print vocabulary1[:50]
-#print the most common 50 words, but with the frequency counts
-#print fdist1.most_common(50)
-
-
-
-# print the most common top 50 n-grams -but without the frequency value
-#vocabulary1 = fdist1.keys()
-#print vocabulary1[:50]
-
-
-#for k,v in fdist.items():
-#    print k,v
-
-#len(tri_tokens)
-#print '\n'.join(sorted(set(tri_tokens)))
-#print '\n'.join(sorted(set(tri_tokens))
-# for item in sorted(set(tri_tokens)):
-#     print [(item, tri_tokens.count(item))]
-# #print tri_tokens.count(item)
-
-#
-#
-# #sent_tokenize_list = sent_tokenize(content)
-#
-# #remove the output file if already exists
-# try:
-#     os.remove(fname2)
-#     os.remove(fname3)
-#     os.remove(fname4)
-# except OSError:
-#     pass
-#
-#
-# #for each line, call the tokenizer to find bigrams
-# for eachLine in sent_tokenize_list:
-#     token=nltk.word_tokenize(eachLine)
-#
-#     #find unigrams and write to file
-#     unigrams=ngrams(token,1)
-#     for myUniGrams in unigrams:
-#         with open(fname3, "a") as text_file:
-#             text_file.write("{0}\n".format(myUniGrams))
-#
-#     #find bigrams and write to file
-#     bigrams=ngrams(token,2)
-#     for myBiGrams in bigrams:
-#         with open(fname2, "a") as text_file:
-#             text_file.write("{0}\n".format(myBiGrams))
-#
-#     #find bigrams and write to file
-#     trigrams=ngrams(token,3)
-#     for myTriGrams in trigrams:
-#         with open(fname4, "a") as text_file:
-#             text_file.write("{0}\n".format(myTriGrams))
-#
-#
-# #compute frequency distribution for all the bigrams in the text
-# fdist = nltk.FreqDist(bgs)
+print "\n"
+print "\n nLambda 1:" + nLambda1
+print "\n nLambda 2:" + nLambda2
+print "\n nLambda 3:" + nLambda3
