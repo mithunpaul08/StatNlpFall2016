@@ -11,9 +11,9 @@ from nltk.tokenize import sent_tokenize
 #define what is the input
 fname1="trainingDataInputForQn1.txt"
 fname2= "testData.txt"
-lambda1=0
-lambda2=0
-lambda3=0
+lambda1=1
+lambda2=1
+lambda3=1
 
 #print lambda1
 #exit()
@@ -63,25 +63,46 @@ fdist_test_uni= nltk.FreqDist(uni_tokens_testing)
 #     print "given ngram not found"
 
 #if the given ngram in trainign data exists in test data increaes the count of lambda
-for uniKeys in fdist_train_uni.keys():
-    if uniKeys in fdist_test_uni.keys():
-        print uniKeys
-        print "unigram word found"
-        lambda1=lambda1+1
 
-#if the given ngram in trainign data exists in test data increaes the count of lambda
-for biKeys in fdist_train_bi.keys():
-    if biKeys in fdist_test_bi.keys():
-        print biKeys
-        print "bigram word found"
-        lambda2=lambda2+1
-
-#if the given ngram in trainign data exists in test data increaes the count of lambda
-for triKeys in fdist_train_tri.keys():
-    if triKeys in fdist_test_tri.keys():
-        print triKeys
+def lambdaCalculatorForTrigram(word1,word2,word3):
+    #return float(fdist_train_tri[word1,word2,word3]) / float(wordCount)
+    if (fdist_train_tri[word1,word2,word3] > 0) :
+        #print triKeys
         print "trigram word found"
-        lambda3=lambda3+1
+        global lambda3
+        lambda3+=1
+    elif (fdist_train_bi[word2,word3] > 0):
+        print "bigram word found"
+        global lambda2
+        lambda2+=1
+    elif (fdist_train_uni[word3] > 0):
+        print "unigram word found"
+        global lambda1
+        lambda1+=1
+
+
+#
+# for uniKeys in fdist_train_uni.keys():
+#     if uniKeys in fdist_test_uni.keys():
+#         print uniKeys
+#         print "unigram word found"
+#         lambda1=lambda1+1
+#
+# #if the given ngram in trainign data exists in test data increaes the count of lambda
+# for biKeys in fdist_train_bi.keys():
+#     if biKeys in fdist_test_bi.keys():
+#         print biKeys
+#         print "bigram word found"
+#         lambda2=lambda2+1
+#
+# #if the given ngram in trainign data exists in test data increaes the count of lambda
+# for triKeys in fdist_train_tri.keys():
+#     if triKeys in fdist_test_tri.keys():
+#         print triKeys
+#         print "trigram word found"
+#         lambda3=lambda3+1
+
+lambdaCalculatorForTrigram("want","english","food")
 
 print "\n"
 print "\nLambda 1:" + `lambda1`
@@ -89,10 +110,12 @@ print "\nLambda 2:" + `lambda2`
 print "\nLambda 3:" + `lambda3`
 
 #normalizing lambda
-sumLambda=lambda1+lambda2+lambda3
-nLambda1= lambda1/sumLambda
-nLambda2=lambda2/sumLambda
-nLambda3=lambda3/sumLambda
+sumLambda = lambda1 + lambda2 + lambda3
+# print sumLambda
+# exit()
+nLambda1= float(lambda1)/float(sumLambda)
+nLambda2= float(lambda2)/float(sumLambda)
+nLambda3= float(lambda3)/float(sumLambda)
 
 
 print "\n"

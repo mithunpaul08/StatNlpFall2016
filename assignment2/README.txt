@@ -102,7 +102,12 @@ Output from code:
 the probability of the given word sequence is 
 4.57191756316e-19
 
-——————————————————————————6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
+——————————————————————————
+
+5.b: Use interpolation
+
+——————————————————————————
+6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
 
 
 ——————————————————————————7. Describe your work (the number of N-grams, the values of s, how to execute yourprograms for steps 3 and 4, etc.) in README.txt (plain text format) within ONE pageMAX and send to jungyeul@email.arizona.edu before 11:00AM on Tuesday, September 27.DO NOT SEND N-GRAM FILES. Use \LING439/539 Assignment #2" as a subject ofthe mail.3 / 3
