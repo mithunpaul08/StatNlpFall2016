@@ -4,7 +4,7 @@ from nltk.util import ngrams
 from nltk.util import bigrams
 from nltk.util import trigrams
 from nltk.tokenize import sent_tokenize
-
+from decimal import Decimal
 
 #import data from the sentence end finder qn result
 fname1="trainingDataOutputForQn1.txt"
@@ -93,11 +93,19 @@ fdist_train_uni= nltk.FreqDist(uni_tokens_training)
 #
 #len_brown = len(brown.words())
 
-len_brown = len(tokens)
 
-unigram_prob= fdist_train_uni["my"] / len_brown
-print "\n"
-print unigram_prob
+wordCount = len(tokens)
+print "total number of words in the given corpus is\n"
+print wordCount
+
+countMy=fdist_train_uni["my"]
+print "number of times the word my occurs is\n"
+print float(countMy)
+
+my_unigram_prob= 100.00000
+my_unigram_prob=float(countMy)/float(wordCount)
+print "the probability of the unigram is \n"
+print my_unigram_prob
 
 
 exit()
