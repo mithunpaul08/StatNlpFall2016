@@ -91,6 +91,17 @@ prob_sentence = trigram_prob("<s>","i","want") * trigram_prob("i","want","englis
 
 Since the phrases are not there in the text, I need to replace the hapax legmemnon with “unk”
 
+update: used laplace smoothing
+
+The uniqueNoOfWords/wordTypes were calculated as:
+
+uniqueNoOfWords= len(set(tokens))
+
+
+Output from code:
+the probability of the given word sequence is 
+4.57191756316e-19
+
 ——————————————————————————6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
 
 

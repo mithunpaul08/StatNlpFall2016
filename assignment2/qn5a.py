@@ -15,6 +15,7 @@ fname1="trainingDataOutputForQn1.txt"
 f= open(fname1)
 content = f.read()
 tokens = nltk.word_tokenize(content)
+uniqueNoOfWords= len(set(tokens))
 uni_tokens_training = [token.lower() for token in tokens if len(token) > 1] #same as unigrams
 fdist_train_uni= nltk.FreqDist(uni_tokens_training)
 
@@ -190,8 +191,7 @@ def trigram_prob(word1,word2,word3):
     print biCount
     triCount= float(fdist_train_tri[word1,word2,word3])
     print triCount
-    exit()
-    return triCount/biCount
+    return (triCount+1)/(biCount+uniqueNoOfWords)
 
 # prob_sentence = trigram_prob("one","of","the")
 # print "\n probability of trigram is"
