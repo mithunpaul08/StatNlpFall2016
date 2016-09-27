@@ -132,6 +132,11 @@ the probability of the given word sequence is
 
 5.b: Use interpolation
 
+Ans:
+
+Since slide12 of lecture sep13 says the sum of lambda values must be 1, am assuming its talking about normalized lambda values.
+
+
 ——————————————————————————
 6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
 
