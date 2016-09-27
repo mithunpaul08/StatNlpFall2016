@@ -1,3 +1,6 @@
+#-*- coding: utf-8 -*-
+
+
 import nltk
 from nltk import word_tokenize
 from nltk.util import ngrams
@@ -21,11 +24,14 @@ fdist_train_uni= nltk.FreqDist(uni_tokens_training)
 # Also, nltk automatically fills the dictionary
 # with counts when given a list of words.
 
-#freq_brown = nltk.FreqDist(brown.words())
 
+#print the most common 20 unigrams
 list(fdist_train_uni.keys())[:20]
 fdist_train_uni.most_common(20)
 
+#print bigrams
+bi_tokens_training = bigrams(uni_tokens_training)
+fdist_train_bi = nltk.FreqDist(bi_tokens_training)
 #
 # # an nltk.ConditionalFreqDist() counts frequencies of pairs.
 # # When given a list of bigrams, it maps each first word of a bigram
@@ -43,7 +49,7 @@ cfreq_brown_2gram.conditions()
 #
 # # the cfreq_brown_2gram entry for "my" is a FreqDist.
 #
-print cfreq_brown_2gram["i"]
+cfreq_brown_2gram["i"]
 #
 # # here are the words that can follow after "my".
 # # We first access the FreqDist associated with "my",
@@ -81,7 +87,7 @@ cprob_brown_2gram["my"]
 #
 #
 print "\n"
-print cprob_brown_2gram["my"].prob("own")
+print cprob_brown_2gram["there"].prob("is")
 
 ##
 # #####
@@ -129,6 +135,9 @@ print "the unigram_prob probability of the given word sequence is \n"
 print unigram_prob("stake")
 
 prob_sentence = unigram_prob("stake") * float(cprob_brown_2gram["stake"].prob("my")) * float(cprob_brown_2gram["my"].prob("political")) * float(cprob_brown_2gram["political"].prob("career"))
+
+#######all trigram related code begins here############
+
 #to find probability of the given sentence in assignment 2
 #DIVIDE the given sentence into trigram sequences. Then call bigram on it?
 #
@@ -157,11 +166,47 @@ prob_sentence = unigram_prob("stake") * float(cprob_brown_2gram["stake"].prob("m
 # condition_pairs = (((w0, w1), w2) for w0, w1, w2 in tri_tokens_training)
 # cfd_brown = nltk.ConditionalFreqDist(condition_pairs)
 
+#function to return the trigram probability
+#P(English | want, I)= C(I want English)/C(I want)
+
+#print the most common 20 trigrams
+tri_tokens_training = trigrams(uni_tokens_training)
+fdist_train_tri = nltk.FreqDist(tri_tokens_training)
+#fdist_train_tri.most_common(20)
+print fdist_train_tri.most_common(20)
+print fdist_train_tri["one","of", "the"]
+
+#for trigrams, break it down to bigram pairs
+#brown_trigrams = nltk.trigrams(tokens)
+#condition_pairs = (((w0, w1), w2) for w0, w1, w2 in brown_trigrams)
+#cfd_tri= nltk.ConditionalFreqDist(condition_pairs)
+#print cfd_tri.conditions['be', 'fine']
+#float(fdist_train_tri[word]) / float(wordCount)
+
+
+def trigram_prob(word1,word2,word3):
+    #return float(fdist_train_tri[word1,word2,word3]) / float(wordCount)
+    biCount= float(fdist_train_bi[word1,word2])
+    print biCount
+    triCount= float(fdist_train_tri[word1,word2,word3])
+    print triCount
+    exit()
+    return triCount/biCount
+
+# prob_sentence = trigram_prob("one","of","the")
+# print "\n probability of trigram is"
+# print prob_sentence
+
+#prob_sentence = trigram_prob("there","is","no")
+#* trigram_prob("want","to","show")
 
 prob_sentence = trigram_prob("<s>","i","want") * trigram_prob("i","want","english")  * trigram_prob("want","english","food")  * trigram_prob("english","food","</s>")
 
 print "the probability of the given word sequence is \n"
 print prob_sentence
+#######all trigram related code ends here############
+
+
 #
 # # result: 1.5639033871961e-09
 
