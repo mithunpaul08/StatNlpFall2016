@@ -23,7 +23,8 @@ Qn 3. Using the training corpus find uni, bi, and tri-grams (3pts)
 Ans: Done. 
 
 The steps are as follows.
- 1) feed the trainingdata to ntlk.sent_tokenize(content) 
+
+1) feed the trainingdata to ntlk.sent_tokenize(content) 
 2) take each of these sentences and feed it to nltk.word_tokenize(text) 
 3) then find bigrams=ngrams(token,2). 
 4) calculate the number of bigrams using wc -l
@@ -33,10 +34,17 @@ The code can be found in qn3.py attached herewith.
 The code can be run by typing “python qn3.py”
 
 The unigrams thus calculated can be found in the attached herewith file: UniGramOutputForQn3.txt
+
+no of unigrams:315584
+
 The bigrams thus calculated can be found in the attached herewith file: BiGramOutputForQn3.txt
+
+no of bigrams: 302142
+
 The bigrams thus calculated can be found in the attached herewith file: 
 TriGramOutputForQn3.txt
 
+no of trigrams:288748
 
 ——————————————————————————4. Using the held-out corpus calculate s (5pts)
 
@@ -136,9 +144,97 @@ Ans:
 
 Since slide12 of lecture sep13 says the sum of lambda values must be 1, am assuming its talking about normalized lambda values.
 
+Code for the same can be found in the attached file qn5b.py
+
+This can be run using the command: python qn5b.py
+
+inputSentence = "<s> i want english food </s>"
+
+Output of the file run on the input sentence is as follows:
+
+('<', 's', '>')
+value of interpolated probability of the given trigram is:1.427380086990553e-06
+
+('s', '>', 'i')
+value of interpolated probability of the given trigram is:1.427380086990553e-06
+
+('>', 'i', 'want')
+value of interpolated probability of the given trigram is:8.953234406465877e-05
+
+('i', 'want', 'english')
+value of interpolated probability of the given trigram is:0.00010587439383471013
+
+('want', 'english', 'food')
+value of interpolated probability of the given trigram is:6.253243574892173e-05
+
+('english', 'food', '<')
+value of interpolated probability of the given trigram is:1.427380086990553e-06
+
+('food', '<', '/s')
+value of interpolated probability of the given trigram is:0.018565285394962296
+
+('<', '/s', '>')
+value of interpolated probability of the given trigram is:1.427380086990553e-06
+——————————————————————————
+6.a Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
+
+Ans:
+
+I did some reading and below are the shortlisted interpolated algorithms which I feel will work better than linear interpolation. Infact witted-bell has a higher perplexity of all for bigrams.
+
+
+
+1. interpolation with context conditioned weights [2]
+
+Pˆ(wn|wn−2wn−1) = λ1(w
+n−1
+n−2
+)P(wn|wn−2wn−1)
++λ2(w
+n−1
+n−2
+)P(wn|wn−1)
++λ3(w
+
+
+2. Knesser-Ney interpolated [ref 4, ref 1 eon 4.33]
+
+ 
+equation for interpolated absolute discounting applied to bigrams:
+PAbsoluteDiscounting(wi
+|wi−1) = C(wi−1wi)−d
+C(wi−1)
++λ(wi−1)P(wi) (4.28)
+The first term is the discounted bigram, and the second term the unigram w
+
+PKN(wi∣wi−1)=max(c(wi−1wi)−δ,0)c(wi−1)+λ∣∣{wi−1:c(wi−1,wi)>0}∣∣∣∣{wj−1:c(wj−1,wj)>0}∣∣
+PKN(wi∣wi−1)=max(c(wi−1wi)−δ,0)c(wi−1)+λ|{wi−1:c(wi−1,wi)>0}||{wj−1:c(wj−1,wj)>0}|
+
+
+
+
+3.Jelinek-Mercer smoothing (interpolation)[Ref 1- page 15]
+
+4. Modified Interpolated Knesser-Ney by Chen & Goodman made interpolated version [2]
+
+5. Absolute discounting [Ref 2- page 17]
+
+6. Witten -Bell Smoothing [Ref 3- page31]
 
 ——————————————————————————
-6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
+6.b calculate their s and the probabilities of the abovesentence. (optional 5pts).
+
+Ans: I have decided to implement Knesser Ney as given in [4]
+
+The code is attached herewith in the file:qn6.py
+
+Note: I have implemented it for a bigram model.
+——————————————————————————7. Describe your work (the number of N-grams, the values of s, how to execute yourprograms for steps 3 and 4, etc.) in README.txt (plain text format) within ONE pageMAX and send to jungyeul@email.arizona.edu before 11:00AM on Tuesday, September 27.DO NOT SEND N-GRAM FILES. Use \LING439/539 Assignment #2" as a subject ofthe mail.
 
 
-——————————————————————————7. Describe your work (the number of N-grams, the values of s, how to execute yourprograms for steps 3 and 4, etc.) in README.txt (plain text format) within ONE pageMAX and send to jungyeul@email.arizona.edu before 11:00AM on Tuesday, September 27.DO NOT SEND N-GRAM FILES. Use \LING439/539 Assignment #2" as a subject ofthe mail.3 / 3
+References:
+
+1.http://nlp.stanford.edu/~wcmac/papers/20050421-smoothing-tutorial.pdf
+2.https://lagunita.stanford.edu/c4x/Engineering/CS-224N/asset/slp4.pdf (Jurafsky martin text book)
+3.http://www.statmt.org/book/slides/07-language-models.pdf
+4.http://www.foldl.me/2014/kneser-ney-smoothing/

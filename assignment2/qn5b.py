@@ -257,6 +257,7 @@ def trigram_prob(word1,word2,word3):
     #print biCount
     triCount= float(fdist_train_tri[word1,word2,word3])
     #print triCount
+    #using smoothing
     return (triCount+1)/(biCount+uniqueNoOfWords)
 
 # prob_sentence = trigram_prob("one","of","the")

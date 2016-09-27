@@ -31,6 +31,7 @@ for eachLine in sent_tokenize_list:
 
     #find unigrams and write to file
     unigrams=ngrams(token,1)
+    #print "number of unigrams is:" + `len(unigrams)`
     for myUniGrams in unigrams:
         with open(fname3, "a") as text_file:
             text_file.write("{0}\n".format(myUniGrams))
