@@ -15,6 +15,8 @@ lambda1=0
 lambda2=0
 lambda3=0
 
+#print lambda1
+#exit()
 
  #read contents of the training data file
 f= open(fname1)
@@ -82,9 +84,9 @@ for triKeys in fdist_train_tri.keys():
         lambda3=lambda3+1
 
 print "\n"
-print "\nLambda 1:" + lambda1
-print "\nLambda 2:" + lambda2
-print "\nLambda 3:" + lambda3
+print "\nLambda 1:" + `lambda1`
+print "\nLambda 2:" + `lambda2`
+print "\nLambda 3:" + `lambda3`
 
 #normalizing lambda
 sumLambda=lambda1+lambda2+lambda3
@@ -94,6 +96,6 @@ nLambda3=lambda3/sumLambda
 
 
 print "\n"
-print "\n nLambda 1:" + nLambda1
-print "\n nLambda 2:" + nLambda2
-print "\n nLambda 3:" + nLambda3
+print "\n nLambda 1:" + `nLambda1`
+print "\n nLambda 2:" + `nLambda2`
+print "\n nLambda 3:" + `nLambda3`

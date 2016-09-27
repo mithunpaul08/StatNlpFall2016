@@ -1,3 +1,15 @@
+Note: all the code and output files can be found at the github repository:
+https://github.com/mithunpaul08/StatNlpFall2016.git
+
+
+——————————————————————————
+
+Assumption: the training and test files are renamed as follows and are kept in the same directory:
+TrainingDataFile:"trainingDataInputForQn1.txt"
+TestDataFile: "testData.txt"
+
+
+——————————————————————————
 Qn 1.Download the training and held-out corpora fromhttps://www.dropbox.com/s/132x4k222wvkf8z/corpus-brown.tar.gz?dl=0 (Brown corpus 50-50)
 
 Ans: done
@@ -18,6 +30,8 @@ The steps are as follows.
 
 
 The code can be found in qn3.py attached herewith.
+The code can be run by typing “python qn3.py”
+
 The unigrams thus calculated can be found in the attached herewith file: UniGramOutputForQn3.txt
 The bigrams thus calculated can be found in the attached herewith file: BiGramOutputForQn3.txt
 The bigrams thus calculated can be found in the attached herewith file: 
@@ -26,8 +40,48 @@ TriGramOutputForQn3.txt
 
 ——————————————————————————4. Using the held-out corpus calculate s (5pts)
 
+Ans: done
+
+The code can be found in the attached file q4.py
+
+The code can be compiled using “python q4.py”
+
+Steps:
+4.1. tokenize training data using
+tokens = nltk.word_tokenize(content)
+
+4.2. convert to n-grams using corresponding command
+Eg:bi_tokens_training = bigrams(uni_tokens_training)
+
+4.3. find a frequency distribution using nltk.FreqDist() :
+Eg: fdist_train_tri = nltk.FreqDist(tri_tokens_training)
+
+4.4: for each of the n-gram list in training data, find if the corresponding n-gram exists in test data. If yes, increase the value of lambda by 1
+Eg:
+for triKeys in fdist_train_tri.keys():
+    if triKeys in fdist_test_tri.keys():
+        print triKeys
+
+4.5: Normalize lambda using sum of lambdas
+Eg:
+sumLambda=lambda1+lambda2+lambda3
+nLambda1= lambda1/sumLambda
 
 ——————————————————————————5. What is the trigram probabilities of i want English food(P(<s> i want English food </s>)) (original andinterpolated probabilities) ? (1pt)
+
+5.a: For calculating the basic probabilities of trigram. 
+Refer slide 13 of lecture on sep 6th.
+Extrapolating it for trigram probability
+
+P(W| wn-1,wn-2)= c(wn-2 wn-1 wn)/ C(wn-2 wn-1).
+
+Because sum of all trigram counts that starts with a given bigram wn-2wn-1  must be 
+same as the number of times the bigram occurs.
+
+Eg: Consider the trigram “I want English”
+
+P(English | want, I)= C(I want English)/C(I want)
+
 
 ——————————————————————————6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
 
