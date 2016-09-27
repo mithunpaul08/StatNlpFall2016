@@ -1,4 +1,4 @@
-Note: all the code and output files can be found at the github repository:
+Note: all the code and output files can be found at my github repository:
 https://github.com/mithunpaul08/StatNlpFall2016.git
 
 
@@ -15,7 +15,9 @@ Qn 1.Download the training and held-out corpora fromhttps://www.dropbox.com/s/1
 Ans: done
 
 ——————————————————————————
-Qn 2. Insert <s> and </s> at the beginning and end of thesentences for your language model (1pt)Ans: Done. I have used the nltk punkt sentence boundary detection. Code can be found in qn2.py attached herewith. THe thus segmented sentences can be found in trainingDataOutputForQn1.txt attached herewith.
+Qn 2. Insert <s> and </s> at the beginning and end of thesentences for your language model (1pt)Ans: Done. I have used the nltk punkt sentence boundary detection. Code can be found in qn2.py attached herewith. 
+
+THe thus segmented sentences can be found in trainingDataOutputForQn1.txt attached herewith.
 
 ——————————————————————————
 Qn 3. Using the training corpus find uni, bi, and tri-grams (3pts)
@@ -50,9 +52,9 @@ no of trigrams:288748
 
 Ans: done
 
-The code can be found in the attached file q4.py
+The code can be found in the attached file qn4.py
 
-The code can be compiled using “python q4.py”
+The code can be compiled using “python qn4.py”
 
 Steps:
 4.1. tokenize training data using
@@ -229,8 +231,38 @@ Ans: I have decided to implement Knesser Ney as given in [4]
 The code is attached herewith in the file:qn6.py
 
 Note: I have implemented it for a bigram model.
-——————————————————————————7. Describe your work (the number of N-grams, the values of s, how to execute yourprograms for steps 3 and 4, etc.) in README.txt (plain text format) within ONE pageMAX and send to jungyeul@email.arizona.edu before 11:00AM on Tuesday, September 27.DO NOT SEND N-GRAM FILES. Use \LING439/539 Assignment #2" as a subject ofthe mail.
 
+The results are as follows:
+
+mithuns-MacBook-Pro.local:/Users/mithun/agro/statNlpFall2016/assignment2$ python qn6.py 
+
+('<', 's')
+value of interpolated probability of the given bi is:0.9571961601598713
+
+('s', '>')
+value of interpolated probability of the given bi is:0.9571961601598713
+
+('>', 'i')
+value of interpolated probability of the given bi is:0.9571961601598713
+
+('i', 'want')
+value of interpolated probability of the given bi is:0.9571961601598713
+
+('want', 'english')
+value of interpolated probability of the given bi is:0.023657569268651087
+
+('english', 'food')
+value of interpolated probability of the given bi is:0.019981055123571637
+
+('food', '<')
+value of interpolated probability of the given bi is:0.03399076044902431
+
+('<', '/s')
+value of interpolated probability of the given bi is:0.9571961601598713
+
+('/s', '>')
+value of interpolated probability of the given bi is:0.00011318110179005249
+——————————————————————————
 
 References:
 
