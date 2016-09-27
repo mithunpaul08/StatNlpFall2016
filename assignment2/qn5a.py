@@ -43,7 +43,7 @@ cfreq_brown_2gram.conditions()
 #
 # # the cfreq_brown_2gram entry for "my" is a FreqDist.
 #
-print cfreq_brown_2gram["my"]
+print cfreq_brown_2gram["i"]
 #
 # # here are the words that can follow after "my".
 # # We first access the FreqDist associated with "my",
@@ -53,7 +53,7 @@ cfreq_brown_2gram["my"].keys()
 #
 # # here are the 20 most frequent words to come after "my", with their frequencies
 #
-print cfreq_brown_2gram["my"].most_common(20)
+print cfreq_brown_2gram["i"].most_common(20)
 
 #
 # # an nltk.ConditionalProbDist() maps pairs to probabilities.
@@ -95,25 +95,23 @@ fdist_train_uni= nltk.FreqDist(uni_tokens_training)
 
 
 wordCount = len(tokens)
-print "total number of words in the given corpus is\n"
+print "\ntotal number of words in the given corpus is"
 print wordCount
 
 countMy=fdist_train_uni["my"]
-print "number of times the word my occurs is\n"
+print "\nnumber of times the word my occurs is"
 print float(countMy)
 
-my_unigram_prob= 100.00000
+#my_unigram_prob= 100.00000
 my_unigram_prob=float(countMy)/float(wordCount)
-print "the probability of the unigram is \n"
+print "\nthe probability of the unigram is "
 print my_unigram_prob
 
 
-exit()
 #
 #function to calculate the unigram probability
-# def unigram_prob(word):
-#
-# #return freq_brown_1gram[ word] / len_brown
+def unigram_prob(word):
+    return float(fdist_train_uni[word]) / float(wordCount)
 #
 #
 #
@@ -127,8 +125,44 @@ exit()
 #
 # # P(how do you do) = P(how) * P(do|how) * P(you|do) * P(do | you)
 #
-# prob_sentence = unigram_prob("how") * cprob_brown_2gram["how"].prob("do") * cprob_brown_2gram["do"].prob("you") * \
+print "the unigram_prob probability of the given word sequence is \n"
+print unigram_prob("stake")
+
+prob_sentence = unigram_prob("stake") * float(cprob_brown_2gram["stake"].prob("my")) * float(cprob_brown_2gram["my"].prob("political")) * float(cprob_brown_2gram["political"].prob("career"))
+#to find probability of the given sentence in assignment 2
+#DIVIDE the given sentence into trigram sequences. Then call bigram on it?
 #
-# cprob_brown_2gram["you"].prob("do")
+# So for calculating the basic probabilities of trigram. Extrapolating (slide 13 of lecture on sep 6th.) for trigram probability, we get:
+#
+# P(W| wn-1,wn-2)= c(wn-2 wn-1 wn)/ C(wn-2 wn-1).
+#
+# Because sum of all trigram counts that starts with a given bigram wn-2wn-1  must be
+# same as the number of times the bigram occurs. Is that a correct assumption?
+#
+# Eg: Consider the trigram “I want English”
+#
+# P(English | want, I)= C(I want English)/C(I want)
+#
+#now consider the entire sentence "<s> i want english food </s>"
+# This will now be
+#
+#P=  P(want | i, <s>)*P(English | want, i)*P(food | english, want)*P(</s> | food, english)
+#refer slide 12 in lecture sep 6th
+# now a trigram probability can be divided down as a function of bigram probability as follows
+# brown_trigrams = nltk.trigrams(brown.words())
+# condition_pairs = (((w0, w1), w2) for w0, w1, w2 in brown_trigrams)
+# cfd_brown = nltk.ConditionalFreqDist(condition_pairs)
+
+#tri_tokens_training = trigrams(uni_tokens_training)
+# condition_pairs = (((w0, w1), w2) for w0, w1, w2 in tri_tokens_training)
+# cfd_brown = nltk.ConditionalFreqDist(condition_pairs)
+
+
+prob_sentence = trigram_prob("<s>","i","want") * trigram_prob("i","want","english")  * trigram_prob("want","english","food")  * trigram_prob("english","food","</s>")
+
+print "the probability of the given word sequence is \n"
+print prob_sentence
 #
 # # result: 1.5639033871961e-09
+
+exit()
