@@ -58,15 +58,41 @@ Eg: fdist_train_tri = nltk.FreqDist(tri_tokens_training)
 
 4.4: for each of the n-gram list in training data, find if the corresponding n-gram exists in test data. If yes, increase the value of lambda by 1
 Eg:
-for triKeys in fdist_train_tri.keys():
-    if triKeys in fdist_test_tri.keys():
-        print triKeys
+    if (fdist_test_tri[word1,word2,word3] > 0) :
+        #print triKeys
+        print "trigram word found"
+        global lambda3
+        lambda3+=1
+    elif (fdist_test_bi[word2,word3] > 0):
+        print "bigram word found"
+        global lambda2
+        lambda2+=1
+    elif (fdist_test_uni[word3] > 0):
+        print "unigram word found"
+        global lambda1
+        lambda1+=1
 
 4.5: Normalize lambda using sum of lambdas
 Eg:
 sumLambda=lambda1+lambda2+lambda3
 nLambda1= lambda1/sumLambda
 
+
+Output from code:
+
+Lambda 1:251458
+
+Lambda 2:171727
+
+Lambda 3:24579
+
+
+
+ nLambda 1:0.5615860140609785
+
+ nLambda 2:0.38352122993362575
+
+ nLambda 3:0.0548927560053957
 ——————————————————————————5. What is the trigram probabilities of i want English food(P(<s> i want English food </s>)) (original andinterpolated probabilities) ? (1pt)
 
 5.a: For calculating the basic probabilities of trigram. 

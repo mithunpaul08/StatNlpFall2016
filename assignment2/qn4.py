@@ -66,16 +66,16 @@ fdist_test_uni= nltk.FreqDist(uni_tokens_testing)
 
 def lambdaCalculatorForTrigram(word1,word2,word3):
     #return float(fdist_train_tri[word1,word2,word3]) / float(wordCount)
-    if (fdist_train_tri[word1,word2,word3] > 0) :
+    if (fdist_test_tri[word1,word2,word3] > 0) :
         #print triKeys
         print "trigram word found"
         global lambda3
         lambda3+=1
-    elif (fdist_train_bi[word2,word3] > 0):
+    elif (fdist_test_bi[word2,word3] > 0):
         print "bigram word found"
         global lambda2
         lambda2+=1
-    elif (fdist_train_uni[word3] > 0):
+    elif (fdist_test_uni[word3] > 0):
         print "unigram word found"
         global lambda1
         lambda1+=1
@@ -102,7 +102,9 @@ def lambdaCalculatorForTrigram(word1,word2,word3):
 #         print "trigram word found"
 #         lambda3=lambda3+1
 
-lambdaCalculatorForTrigram("want","english","food")
+for triKeys in fdist_train_tri.keys():
+    print triKeys
+    lambdaCalculatorForTrigram(triKeys[0],triKeys[1],triKeys[2])
 
 print "\n"
 print "\nLambda 1:" + `lambda1`
