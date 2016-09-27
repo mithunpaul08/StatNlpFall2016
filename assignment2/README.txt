@@ -82,7 +82,13 @@ Eg: Consider the trigram “I want English”
 
 P(English | want, I)= C(I want English)/C(I want)
 
+Update: I looked up online, and apparently NLTK has modules that does the probability calculations for bigrams[1]. I have extrapolated it for trigrams[2].
 
+
+References:
+1. https://stackoverflow.com/questions/38068539/finding-conditional-probability-of-trigram-in-python-nltk
+
+2. http://www.katrinerk.com/courses/python-worksheets/language-models-in-python
 ——————————————————————————6. Propose the better algorithm for the interpolation andcalculate their s and the probabilities of the abovesentence. (optional 5pts).
 
 
