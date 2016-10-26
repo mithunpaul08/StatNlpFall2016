@@ -28,7 +28,13 @@ for line in lines:
         tags.append(cols[1])
         symbols.append(cols[0])
 
+invidualSentence=[("apple",""),("pie","")]
 
+for char in symbols:
+    invidualSentence.append(char, "")
+
+print(invidualSentence)
+exit()
 trainer = nltk.tag.HiddenMarkovModelTrainer(tags, symbols)
 
 

@@ -1,6 +1,6 @@
-#story so far: I gave teh input collection as symbols.none . Now The tagger is doing something long.
+#story so far: Code runs for 1000 iterations and tags everything as NOUN. facepalm
 #todo in this version:
-#1.remove the exit() and feed it the entire corpus for tagging.
+#1.just experimenting with format of unlabeled
 
 
 
@@ -23,11 +23,18 @@ tags = ["NOUN", "DET"]
 symbols = ["a", "b", "c", "x", "y"]
 
 for line in lines:
-    cols = line.split("\t", 2)
-    tags.append(cols[1])
-    symbols.append(cols[0])
+    if line != "": # add other needed checks to skip titles
+        cols = line.split("\t", 2)
+        tags.append(cols[1])
+        symbols.append(cols[0])
 
+invidualSentence=[("apple",""),("pie","")]
 
+for char in symbols:
+    invidualSentence.append(char, "")
+
+print(invidualSentence)
+exit()
 trainer = nltk.tag.HiddenMarkovModelTrainer(tags, symbols)
 
 
