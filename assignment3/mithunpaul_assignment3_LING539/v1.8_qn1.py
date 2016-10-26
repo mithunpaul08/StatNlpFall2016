@@ -31,8 +31,8 @@ for line in lines:
 
 trainer = nltk.tag.HiddenMarkovModelTrainer(tags, symbols)
 
+tagger = trainer.train_unsupervised([[(char, "") for char in symbols]])
 
-tagger = trainer.train_unsupervised([[(char, "") for char in symbols])
 
 print(tagger.tag("Today is a good day .".split()))
 
