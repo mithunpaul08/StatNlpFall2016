@@ -32,15 +32,12 @@ for line in lines:
 trainer = nltk.tag.HiddenMarkovModelTrainer(tags, symbols)
 
 
-tagger = trainer.train_unsupervised([[(char, "") for char in symbols])
+tagger = trainer.train_unsupervised([(char, "") for char in symbols])
 
 print(tagger.tag("Today is a good day .".split()))
 
 symbolsToTest=["four","score","and"]
 for line in lines:
-    #print(line)
     cols = line.split("\t", 2)
     symbolsToTest.append(cols[0])
-    #print(symbolsToTest)
-
-print(tagger.tag(symbolsToTest))
+    print(tagger.tag(symbolsToTest))
